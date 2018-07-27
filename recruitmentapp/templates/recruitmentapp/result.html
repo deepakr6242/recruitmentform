@@ -24,7 +24,7 @@
 
 <div class="sidebar">
 <h6><a href="http://localhost:8000/recruitmentapp/adminpage">Back to Page</a></h6>
-
+{% if user.is_authenticated %}
 </div>
         <div id="logo_text">
 			<center>
@@ -121,6 +121,9 @@ $(document).ready(function() {
 </script>
 
 
+{% else %}
+        You are not logged in
+    {% endif %}
 
 </div>	
 </div>	  

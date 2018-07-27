@@ -6,6 +6,8 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <head>
+
+  {% if user.is_authenticated %}
   <title>Admin Page</title>
 </head>
 <body>
@@ -44,7 +46,7 @@
 $(document).ready(function() {
     $('#view').click(function() {
       var  selectedresume=$('#resume option:selected').text()
-      alert (typeof selectedresume)
+      
         console.log(selectedresume)    
         var request=$.ajax({
         type: "POST",
@@ -68,5 +70,10 @@ $(document).ready(function() {
 });
 
 </script>
+
+
+{% else %}
+        You are not logged in
+    {% endif %}
 </html>
 
