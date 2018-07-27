@@ -1,0 +1,26 @@
+{% extends "webapp/header.html" %}
+{% load staticfiles}
+<link rel="stulesheet " type ="text/css" >
+{% block content %}
+{% if request.user.is_authenticated %}
+<body>
+<h4><left>Logged in User:{{request.user.username}}</left></h4> <br>
+<h4><left>Email ID   :      {{request.user.email}}</left></h4> <br>
+<h4> Logged in Date: {{today}}</h4><br>
+
+
+{% else %}
+
+<h3>Guest </h3>
+
+{% endif %}
+
+<h1><center> List of Applications Automated</center></h1><br><br>
+
+</body>
+
+{% endblock %}
+
+
+
+

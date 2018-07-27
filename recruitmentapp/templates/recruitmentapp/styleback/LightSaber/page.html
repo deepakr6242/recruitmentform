@@ -1,0 +1,331 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Lightsaber</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">Light<span class="logo_colour">Saber</span></a></h1>
+          <h2>Bringing Test Automation to You</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="index.html">Home</a></li>
+          <li class="selected"><a href="page.html">LightSaber</a></li>
+          <li><a href="examples.html">CMS</a></li>
+          <li><a href="another_page.html">TDM</a></li>
+          <li><a href="contact.html">Chat Room</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div class="sidebar">
+        <!-- insert your sidebar items here -->
+        <h3>Latest News</h3>
+        <h4>New Website Launched</h4>
+        <h5>January 1st, 2010</h5>
+        <p>2010 sees the redesign of our website. Take a look around and let us know what you think.<br /><a href="#">Read more</a></p>
+        <p></p>
+        <h4>New Website Launched</h4>
+        <h5>January 1st, 2010</h5>
+        <p>2010 sees the redesign of our website. Take a look around and let us know what you think.<br /><a href="#">Read more</a></p>
+        <h3>Useful Links</h3>
+        <ul>
+          <li><a href="#">Confluence</a></li>
+          <li><a href="#">JIRA</a></li>
+          <li><a href="#">Remedy</a></li>
+          <li><a href="#">Yammer</a></li>
+        </ul>
+        <h3>Search</h3>
+        <form method="post" action="#" id="search_form">
+          <p>
+            <input class="search" type="text" name="search_field" value="Enter keywords....." />
+            <input name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="style/search.png" alt="Search" title="Search" />
+          </p>
+        </form>
+      </div>
+
+<div></div>
+
+
+<!-- Developper codes for the Django/Python part goes from here onwards-->
+<body class="body" style="background-color:#f6f6f6">
+	<div class="container-fluid" style="min-height:95%; ">
+		<div class="row">
+			  <div class="col-sm-10">
+				  <div class='container-fluid'>
+			<br><br>
+			   {% block content %}
+			   <!--inheriting the webapp/home.html-->
+			   
+			   {% endblock %}	
+			</div>
+			  </div>
+		</div><hr>
+		<div class="container">
+
+		<div class="row">
+		  <div class="col-sm-2">
+		  <br>
+
+		  <br>  
+		   <!-- Great, til you resize. -->
+			<!--<div class="well bs-sidebar affix" id="sidebar" style="background-color:#fff">-->
+			<div class="well bs-sidebar" id="sidebar">
+			  <ul class="nav nav-pills nav-stacked">
+			  <h1>Examples</h1>
+				<h3>Application A <span class="badge badge-secondary"></span></h3>
+				
+				
+			  </ul>
+			</div> <!--well bs-sidebar affix-->
+		  </div> <!--col-sm-2-->
+		  <div class="col-sm-10">
+		  
+		  
+		  <h4>ACTIONS ALLOWED</h4><br>
+  <div>
+<!--     <div class="dropdown">
+    <button class="btn btn-success btn-md"  type="button" onclick="" data-toggle="dropdown">List of scripts available
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      
+      <li><a href="#">Healthcheck </a></li>
+      <li><a href="#">Regresseion Testing</a></li>
+      <li><a href="#">Functional Testin</a></li>
+	  <li><a href="#">Unit Testing</a></li>
+      <li class="divider"></li>
+      </ul>
+<button class="btn btn-warning btn-md">Click to see the results</button><br>
+	  </div> -->
+	  
+<select id="myList" >
+  <option id="stylesheet1" value="default">Choose to run  scripts</option>
+  <option id="stylesheet2" value="one">Health check</option>
+  <option id="stylesheet3" value="two">Regression Testing</option>  
+  <option id="stylesheet4" value="three">Unit Testing</option>
+  
+  <li class="divider"></li>
+
+  
+</select>
+<select id="myresult" >
+  <option id="stylesheet12" value="default">Choose to see results</option>
+  <option id="stylesheet13" value="one">Healthcheck Result</option>
+  <option id="stylesheet13" value="two">Regression Result</option>  
+  <option id="stylesheet14" value="three">UnitTesting Result</option>
+  
+</select>
+
+</div>
+    
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('.btn-success').tooltip({title: "Execute", animation: true}); 
+    $('.btn-warning').tooltip({title: "Results!@", animation: false}); 
+});
+</script>
+  
+		<div class="row">
+		  <div class="col-sm-2">
+		  <br>
+
+		  <br>
+		   <!-- Great, til you resize. -->
+			<!--<div class="well bs-sidebar affix" id="sidebar" style="background-color:#fff">-->
+			<div class="well bs-sidebar" id="sidebar">
+			  <ul class="nav nav-pills nav-stacked">
+				<h3>Application B <span class="badge badge-secondary"></span></h3>
+				
+				
+			  </ul>
+			</div> <!--well bs-sidebar affix-->
+		  </div> <!--col-sm-2-->
+		  <div class="col-sm-10">
+		  
+		  
+		  <h4>ACTIONS ALLOWED</h4><br>
+<!--   <div>
+    <div class="dropdown">
+    <button class="btn btn-success btn-md"  type="button" onclick="" data-toggle="dropdown">List of scripts available
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      
+      <li><a name ="Healthcheck" id="id_Healthcheck" autofocus=" " href="#">Healthcheck </a></li>
+      <li><a href="#">Regresseion Testing</a></li>
+      <li><a href="#">Functional Testin</a></li>
+	  <li><a href="#">Unit Testing</a></li>
+      <li class="divider"></li>
+      </ul>
+<button class="btn btn-warning btn-md">Cick to see the results</button><br>
+	  </div>
+	  
+	  
+</div> -->
+
+<select id="myList" >
+  <option id="stylesheet1" value="default">Choose to run  scripts</option>
+  <option id="stylesheet2" value="one">Health check</option>
+  <option id="stylesheet3" value="two">Regression Testing</option>  
+  <option id="stylesheet4" value="three">Unit Testing</option>
+  
+  <li class="divider"></li>
+
+  
+</select>
+<select id="myresult" >
+  <option id="stylesheet12" value="default">Choose to see results</option>
+  <option id="stylesheet13" value="one">Healthcheck Result</option>
+  <option id="stylesheet13" value="two">Regression Result</option>  
+  <option id="stylesheet14" value="three">UnitTesting Result</option>
+  
+</select>
+    
+  </div>
+  
+</div>
+
+<script>
+$(document).ready(function(){
+    $('.btn-success').tooltip({title: "Execute", animation: true}); 
+    $('.btn-warning').tooltip({title: "Results!@", animation: false}); 
+});
+</script>
+
+		<div class="row">
+		  <div class="col-sm-2">
+		  <br>
+
+		  <br>
+		   <!-- Great, til you resize. -->
+			<!--<div class="well bs-sidebar affix" id="sidebar" style="background-color:#fff">-->
+			<div class="well bs-sidebar" id="sidebar">
+			  <ul class="nav nav-pills nav-stacked">
+				<h3>Application C <span class="badge badge-secondary"></span></h3>
+				
+				
+			  </ul>
+			</div> <!--well bs-sidebar affix-->
+		  </div> <!--col-sm-2-->
+		  <div class="col-sm-10">
+		  
+		  
+		  <h4>ACTIONS ALLOWED</h4><br>
+		  
+  <div class="cddp">
+  
+     
+  <select id="myList" >
+  <option id="stylesheet1" value="default">Choose to run  scripts</option>
+  <option id="stylesheet2" value="one">Health check</option>
+  <option id="stylesheet3" value="two">Regression Testing</option>  
+  <option id="stylesheet4" value="three">Unit Testing</option>
+  
+  <li class="divider"></li>
+
+  
+</select>
+
+<select id="myresult" >
+  <option id="stylesheet12" value="default">Choose to see results</option>
+  <option id="stylesheet13" value="one">Healthcheck Result</option>
+  <option id="stylesheet13" value="two">Regression Result</option>  
+  <option id="stylesheet14" value="three">UnitTesting Result</option>
+  
+</select>
+  
+</div>
+
+ 
+  
+
+ <script>  
+
+document.getElementById("myList").onchange = function() {
+   var sheet=document.getElementById("myList").value;
+    if(sheet=="one"){
+	var r=confirm(" Do you want to really run this job");
+	
+	$.ajax({
+   url: "job1request",
+   success: function(response)
+ 
+   {
+     alert(" Job exceuted successfully"+response);
+   }
+});
+   
+   
+   
+   
+   }
+   
+   
+   else if(sheet=="two"){
+	alert(" Do you want to really run this job");
+	
+	$.ajax({
+   url: "job1request",
+   success: function(response)
+ 
+   {
+     alert(" response");
+   }
+});
+   
+   
+   
+   
+   }
+   else if(sheet=="three"){
+   alert(" Do you want to really run this job");
+   
+   }
+   else{
+   alert("choose the job to run");
+   setActiveStyleSheet("Choose the option");
+   }
+   return false
+};
+   
+   </script>  <br><br>
+	
+  </div>
+</div>
+
+
+</div>
+
+<br><br><br><br><br><br><br><br><br>
+<!-- Developper codes for the Django/Python part ends here -->
+
+
+		  
+			
+		  </div>
+		</div> 
+	</div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+      <p><a href="index.html">Home</a> | <a href="examples.html">Examples</a> | <a href="page.html">A Page</a> | <a href="another_page.html">Another Page</a> | <a href="contact.html">Contact Us</a></p>
+    </div>
+  </div>
+</body>
+</html>

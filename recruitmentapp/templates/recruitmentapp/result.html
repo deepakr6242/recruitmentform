@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Recruitment Form</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	{% load staticfiles %}
+
+	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		html,
+		body {
+		  height:100%
+		}
+	</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+<h6><a href="http://localhost:8000/recruitmentapp/adminpage">Back to Page</a></h6>
+
+</div>
+        <div id="logo_text">
+			<center>
+          <h1>Applicant  <span class="logo_colour" id ="">Details</span></h1></center>
+	
+<div class "" id="applicant" name="applicant">
+		
+{% block content %}
+{% for i in info %}
+   <p>{{ i }}</p>
+  
+     {% endfor %}
+		  
+</span>
+   
+</div>
+    {% endblock %}
+				  </div>
+				  <button type="button" class="btn btn-default" id ="accept" data-dismiss="modal">Accept</button>
+				  <button type="button" class="btn btn-default" id ="reject" data-dismiss="modal">Reject</button>
+
+<script>
+$(document).ready(function() {
+    $('#accept').click(function() {
+
+		var name='{{ info }}'
+    	
+
+        console.log(name)
+        
+        var request=$.ajax({
+        type: "POST",
+	   	url: "{{ 'accept '}}",
+	   	
+  	
+	   	data:{url2:name}
+	   	});
+	   	request.done( function(response)
+	   {
+	 
+		 $('.success').show();
+		 console.log("after ajax call ")
+	   swal({
+  title: "Hurrah",
+  text: "You have selected the candidate .More info  in  C:\\Filtered",
+  icon: "success",
+  button: "Done!",
+});		
+	   });
+	   request.fail(function(jqXHR, textStatus)
+	   {	  
+	   alert("Issue in executing the scripts please  contact  Dev")
+
+	   });
+	});
+});
+</script>
+
+<script>
+$(document).ready(function() {
+    $('#reject').click(function() {
+
+		var name='{{ info }}'
+    	
+
+        console.log(name)
+        
+        var request=$.ajax({
+        type: "POST",
+	   	url: "{{ 'reject '}}",
+	   	
+  	
+	   	data:{url2:name}
+	   	});
+	   	request.done( function(response)
+	   {
+	 
+		 $('.success').show();
+		 console.log("after ajax call ")
+	   swal({
+  title: "Info",
+  text: "You have rejcted the candidate .More info  in  C:\\Filtered",
+  icon: "info",
+  button: "Done!",
+});		
+	   });
+	   request.fail(function(jqXHR, textStatus)
+	   {	  
+	   alert("Issue in executing the scripts please  contact  Dev")
+
+	   });
+	});
+});
+</script>
+
+
+
+</div>	
+</div>	  
+</body>

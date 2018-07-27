@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<head>
+	<title>Recruitment Form</title>
+</head>
+{% csrf_token %}
+{% block content %}
+{% endblock %}
+
+<h2> Recruitment Form</h2>
+<body>
+<div class="topcorner"><a href="http://localhost:8000/recruitmentapp/login">Admin</a></div>
+<style>
+.topcorner{
+    position:absolute;
+    top:20px;
+    right: 100px;
+ }
+</style>
+
+<form class="login-form" method="Post"> 
+  <div class="modal-header">
+    
+    
+  <div class="modal-body">
+        
+        <div class="fieldWrapper form-group  has-feedback">
+            <label class="control-label" for="name">Name</label>
+            <input class="form-control" id="name" type="text" name="name" value="">
+            
+        </div>
+
+        <div class="fieldWrapper form-group  has-feedback">
+            <label class="control-label" for="experience">Experience(Years)</label>
+            <input class="form-control" id="experience" type="text" name="experience" value="">
+            
+        </div>
+
+        <div class="fieldWrapper form-group  has-feedback">
+            <label class="control-label" for="language">Programming langauage</label>
+            <input class="form-control" id="language" type="text" name="language" value="">
+            
+        </div>
+        
+  </div>
+  <div class="modal-footer">
+<button type="button" class="btn btn-default" id ="submit" data-dismiss="modal">submit</button>
+<button onclick="window.location.href=' http://localhost:8000/recruitmentapp/'"class="btn btn-default" id ="RESET" data-dismiss="modal">Reset</button>
+</div>
+</form>
+
+
+<script>
+$(document).ready(function() {
+    $('#submit').click(function() {
+    	
+    	var name = $('input[name="name"]').val();
+    	var experience = $('input[name="experience"]').val();
+    	var language = $('input[name="language"]').val();
+
+    	// alert(experience)
+    	// alert(typeof experience)
+    	// alert(name)
+    	var data=(name+","+experience+","+language);
+    	// alert(data)
+    
+        
+        console.log(data)
+        
+        var request=$.ajax({
+        type: "POST",
+	   	url: "{{ 'success '}}",
+	   	
+  	
+	   	data:{url2:data}
+	   	});
+	   	request.done( function(response)
+	   {
+	 
+		 $('.success').show();
+		 console.log("after ajax call ")
+		 // alert(" Job exceuted successfully");
+
+	   swal({
+  title: "Good job!",
+  text: "Thank You for Submitting the Application",
+  icon: "success",
+  button: "Done!",
+});
+		
+	   });
+
+	   request.fail(function(jqXHR, textStatus)
+	   {
+	  
+	   alert("Issue in executing the scripts please  contact  Dev")
+
+
+	   
+
+
+	   });
+	});
+});
+
+</script>
+
+
+<!-- <script type="text/javascript">
+	
+	$(document).on('submit', '.login-form', function(){
+$.ajax({ 
+    type: $(this).attr('method'), 
+    url: "{% url 'success' %}"
+    data: $(this).serialize(),
+    context: this,
+    success: function(data, status) {
+        $('#LoginModal').html(data);
+    }
+    });
+    return false;
+});
+</script>> -->
+
+<!-- 
+<form id ="recruitment">
+  <div>
+    <label for="name">Name :</label>
+    <input type="text" id="name" name="user_name">
+    <br><br><br>
+  </div>
+  <div>
+    <label for="mail">E-mail:</label>
+    <input type="email" id="mail" name="user_mail">
+    <br><br><br>
+  </div>
+  <div>
+    <label for="current role">Role :</label>
+    <input type="role" id="role" name="role">
+    <br><br><br>
+
+    <div>
+    <label for="Programming">Programming language :</label>
+    <input type="role" id="lang" name="role">
+    <br><br><br>
+  </div>
+
+<p>   
+<span> </span><button id="schedulerbutton" type="submit">Schedule</button>
+ <input type="reset"> -->
+<!-- </p>
+</div>
+</form>
+ --> 
+
+
+
+<!-- 	<script>
+
+
+
+		// $(document).ready(function(){
+  //   $("#recruitment").validate({
+  //           submitHandler: function(form) {
+  //               alert($('#recruitment input[name="name"]').val());
+  //           }
+  //       });
+  // })
+
+//  $(document).ready(function() 
+
+
+// {
+// 	$('#schedulerbutton').click(function() {
+// 	var env =  document.getElementById("role").value
+// 	// var  name=document.getElementById("name").value()
+// 	alert("hello")
+
+// 	alert(env)
+// });
+// //     $('#schedulerbutton').click(function() {
+
+// $("#recruitment").validate({
+// messages: {
+//      portfolio: {
+//       required: "Please select an option from the list",
+//      },
+//       application:{
+//         required:"Please select an option from the list"
+//       },
+//       myDate:{
+//         required:"Please choose the date from the calendar"
+//       },
+//       script:{
+//         required:"Please choose script from the dropdown"
+//       },
+//       timepicker:{
+//         required:"Please choose the time from dropdown"
+//       },
+
+//     },
+// submitHandler:function(){
+
+//       var  selectedportfolio=$('#portfolio option:selected').text() 
+
+//       // if (confirm('Kindly confirm to schedule')==false)
+//       //chosen application from dropdown
+//       var  selectedapplication=$('#application option:selected').text() 
+
+      
+//       var  selectedscript=$('#script option:selected').text()
+//       var  selectedtime=$('#timepicker option:selected').text()
+//       // console.log (selectedtime)
+//       var date=document.getElementById("name").value
+//       alert(date)
+      
+      
+      
+//       var url=selectedportfolio+"/"+selectedapplication+"/"+selectedscript
+//       var date_time=date+" "+selectedtime
+//       // console.log("selected datetime is"+date_time)
+     
+        
+
+//         swal("selected datetime is"+date_time)
+//         // console.log("time selected is "+date_time)
+
+
+
+//         var request=$.ajax({
+//         type: "POST",
+//         url: "{% url 'success' %}",
+//         cache:"false",
+//         data:{url2:url,timefe:date_time},
+//         beforeSend: function() {
+//          swal({
+//   title: "Good Job!",
+//   text: "Request Sent successfully!",
+//   icon: "success",
+//   button: "Done!",
+// });
+         
+//     },
+//     // statusCode: { 
+//     //       200: function() {
+//     //       alert("Ajax call successfully completed");
+//     //    }
+//     //  },
+    
+    
+//     // error : function(xhr,errmsg,err) {
+//     //             // Show an error
+//     //             $('#results').html("<div class='alert-box alert radius' data-alert>"+
+//     //             "Oops! We have encountered an error. <a href='#' class='close'>&times;</a></div>"); // add error to the dom
+//     //             alert(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+//     //         },
+//             error: function(jqXHR, exception) {
+//             if (jqXHR.status === 0) {
+//                 console.log("Left the scheduler page .Ignoring the  JQXHR code 0  as the job is  scheduled already");
+//             } else if (jqXHR.status == 404) {
+//                 alert('Requested page not found. [404]');
+//             } else if (jqXHR.status == 500) {
+//                 alert('Internal Server Error [500].');
+//             } else if (exception === 'parsererror') {
+//                 alert('Requested JSON parse failed.');
+//             } else if (exception === 'timeout') {
+//                 alert('Time out error.');
+//             } else if (exception === 'abort') {
+//                 alert('Ajax request aborted.');
+//             } else {
+//                 alert('Uncaught Error.\n' + jqXHR.responseText);
+//             }
+//           },
+
+
+//         success:function(data){
+
+//         alert("sent")
+
+//       }
+     
+//       });
+      
+
+//      request.fail(function(jqXHR, textStatus)
+//      {
+      
+//      console.log("Issue in  accepting scheduling Request")
+
+
+//      });
+//    }
+//  })
+
+//   });
+
+    // });
+
+
+
+
+ 
+
+
+</script> -->
+
+
+
+</body>
+</html>

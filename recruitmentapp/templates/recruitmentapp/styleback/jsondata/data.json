@@ -1,0 +1,12 @@
+{
+  "Cards": "Authorization,Blue Bean Interest,Charge Back International,Charge Back local,Customer service and Update,IF Execution,Internet Merchant,Lost Stolen card,New Business,SBSA Interest,Scoring",
+  "BranchOperations": "Scripts",
+  "CCC": "scriptsyet",
+  "Credit" : "script_credit",
+  "Customer1st": "script_customer_1st",
+  "Digital": "script_Digital",
+  "ECM": "script_ECM",
+  "HomeLoan": "script_Homeloan",
+  "VAF": "Script_vaf",
+  "Wealth": "script_wealth"
+}

@@ -1,0 +1,138 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <title>lightsaber</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href=
+  "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'webapp/css/bootstrap.min.css' %}" type = "text/css"/>
+      </head>
+      
+      <!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Lightsaber</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="{% static 'webapp/css/bootstrap.min.css' %}"  />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">Light<span class="logo_colour">Saber</span></a></h1>
+          <h2>Bringing Test Automation to You</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+<div class="cddp">
+  
+     
+  <select id="myList" >
+  <option id="stylesheet1" value="default">Choose to run  scripts</option>
+  <option id="stylesheet2" value="one">Health check</option>
+  <option id="stylesheet3" value="two">Regression Testing</option>  
+  <option id="stylesheet4" value="three">Unit Testing</option>
+  
+  <li class="divider"></li>
+
+  
+</select>
+
+<select id="myresult" >
+  <option id="stylesheet12" value="default">Choose to see results</option>
+  <option id="stylesheet13" value="one">Healthcheck Result</option>
+  <option id="stylesheet13" value="two">Regression Result</option>  
+  <option id="stylesheet14" value="three">UnitTesting Result</option>
+  
+</select>
+  
+</div>
+
+ 
+  
+
+ <script>  
+
+  // $("#first-choice").change(function() {
+
+  // var $dropdown = $(this);
+
+  // $.getJSON("jsondata/data.json", function(data) {
+  
+  //   var key = $dropdown.val();
+  //   var vals = [];
+              
+  //   switch(key) {
+  //     case 'Cards':
+  //       vals = data.Cards.split(",");
+  //       break;
+  
+
+document.getElementById("myList").onchange = function() {
+   var sheet=document.getElementById("myList").value;
+    if(sheet=="one"){
+  var r=confirm(" Do you want to really run this job");
+  
+  $.ajax({
+   url: "job1request",
+   success: function(response)
+ 
+   {
+     alert(" Job exceuted successfully"+response);
+   }
+});
+   
+   
+   
+   
+   }
+   
+   
+   else if(sheet=="two"){
+  alert(" Do you want to really run this job");
+  
+  $.ajax({
+   url: "job1request",
+   success: function(response)
+ 
+   {
+     alert(" response");
+   }
+});
+   
+   
+   
+   
+   }
+   else if(sheet=="three"){
+   alert(" Do you want to really run this job");
+   
+   }
+   else{
+   alert("choose the job to run");
+   setActiveStyleSheet("Choose the option");
+   }
+   return false
+};
+   
+   </script>  <br><br>
+  
+  </div>
+</div>
+
+
+</div>

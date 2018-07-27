@@ -1,0 +1,195 @@
+  {% load staticfiles %}
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <title>lightsaber</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet"  type = "text/css" href="{% static 'webapp/css/style.css' %}" />
+      </head>
+     
+      <body>
+      
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">LightSaber<span class="logo_colour" style="background-color:white"> </span></a></h1>
+          <h3><a href="index.html">Bringing Test Automation to You<span class="logo_colour" style="background-color:white"></span></a></h3>
+         
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html">Lightsaber</a></li>
+          <li><a href="examples.html">CMS</a></li>
+          <li><a href="another_page.html">TDM</a></li>
+          <li><a href="contact.html">Chat Room</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div class="sidebar">
+        <!-- insert your sidebar items here -->
+       
+        
+      </div>
+
+<div></div>
+
+
+<!-- Developper codes for the Django/Python part goes from here onwards-->
+
+  <div class="container-fluid" style="min-height:95%; ">
+    <div class="row">
+        <div class="col-sm-10">
+          <div class='container-fluid'>
+      <br><br>
+         {% block content %}
+         <!--inheriting the webapp/home.html-->
+         
+         {% endblock %} 
+      </div>
+        </div>
+    </div><hr>
+    <div class="container">
+
+    <div class="row">
+      <div class="col-sm-2">
+      <br>
+
+        
+       <!-- Great, til you resize. -->
+
+
+    <div class="row">
+      <div class="col-sm-2">
+      <br>
+
+      <br>
+       <!-- Great, til you resize. -->
+      <!--<div class="well bs-sidebar affix" id="sidebar" style="background-color:#fff">-->
+      <div class="well bs-sidebar" id="sidebar">
+        <ul class="nav nav-pills nav-stacked">
+        <h3>Application C <span class="badge badge-secondary"></span></h3>
+        
+        
+        </ul>
+      </div> <!--well bs-sidebar affix-->
+      </div> <!--col-sm-2-->
+      <div class="col-sm-10">
+      
+      
+      <h4>ACTIONS ALLOWED</h4><br>
+      
+  <div class="cddp">
+  
+     
+  <select id="myList" >
+  <option id="stylesheet1" value="default">Choose to run  scripts</option>
+  <option id="stylesheet2" value="one">Health check</option>
+  <option id="stylesheet3" value="two">Regression Testing</option>  
+  <option id="stylesheet4" value="three">Unit Testing</option>
+  
+  <li class="divider"></li>
+
+  
+</select>
+
+<select id="myresult" >
+  <option id="stylesheet12" value="default">Choose to see results</option>
+  <option id="stylesheet13" value="one">Healthcheck Result</option>
+  <option id="stylesheet13" value="two">Regression Result</option>  
+  <option id="stylesheet14" value="three">UnitTesting Result</option>
+  
+</select>
+  
+</div>
+
+ 
+  
+
+ <script>  
+
+document.getElementById("myList").onchange = function() {
+   var sheet=document.getElementById("myList").value;
+    if(sheet=="one"){
+  var r=confirm(" Do you want to really run this job");
+  
+  $.ajax({
+   url: "job1request",
+   success: function(response)
+ 
+   {
+     alert(" Job exceuted successfully"+response);
+   }
+});
+   
+   
+   
+   
+   }
+   
+   
+   else if(sheet=="two"){
+  alert(" Do you want to really run this job");
+  
+  $.ajax({
+   url: "job1request",
+   success: function(response)
+ 
+   {
+     alert(" response");
+   }
+});
+   
+   
+   
+   
+   }
+   else if(sheet=="three"){
+   alert(" Do you want to really run this job");
+   
+   }
+   else{
+   alert("choose the job to run");
+   setActiveStyleSheet("Choose the option");
+   }
+   return false
+};
+   
+   </script>  <br><br>
+  
+  </div>
+</div>
+
+
+</div>
+
+<br><br><br><br><br><br><br><br><br>
+<!-- Developper codes for the Django/Python part ends here -->
+
+
+      
+      
+      </div>
+    </div> 
+  </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+      <p><a href="index.html">Home</a> | <a href="examples.html">Examples</a> | <a href="page.html">A Page</a> | <a href="another_page.html">Another Page</a> | <a href="contact.html">Contact Us</a></p>
+    </div>
+  </div>
+</body>
+</html>

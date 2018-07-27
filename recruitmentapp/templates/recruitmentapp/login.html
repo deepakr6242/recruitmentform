@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>lightsaber</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'webapp/css/bootstrap.min.css' %}" type = "text/css"/>
+    <link rel="stylesheet" href="{% static 'webapp/css/style.css' %}" type = "text/css"/>
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        html,
+        body {
+          height:100%
+
+        }
+    </style>
+
+</head>
+
+<body id = "site_content">
+
+
+{% block body %}
+
+        <div id="logo_text">
+            <center>
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1>Welcome <span class="logo_colour">Admin</span></h1>
+          <br><br><br><br>
+          <h2>Login here</h2>
+            </center>
+        </div>
+
+
+    <form method="post">
+        {% csrf_token %}
+        <center>{{ form.as_p }}<center>
+        <center><button type="submit"  class="btn btn-info">Login</button></center>
+    </form>
+    
+
+{% endblock %}
+</body>

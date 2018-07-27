@@ -1,0 +1,34 @@
+{% extends "webapp/base.html" %}
+
+{% block body %}
+<div class="container"><br><br><br><br>
+    <br><center><h2>Welcome to Lightsaber!!</h2><center>
+	<h3>Login here</h3>
+   <style type="text/css">
+
+body {
+    margin:0px 0px; 
+    text-align:center;
+    align:center;
+}
+
+
+label {
+ text-align: right;
+ width: 105px;
+ padding-right: 10px;
+}
+
+br {
+ clear: right;
+}
+
+</style> 
+    <form method="post">
+        {% csrf_token %}
+        <center>{{ form.as_p }}<center>
+        <center><button type="submit">Login</button></center>
+    </form>
+	
+</div>
+{% endblock %}

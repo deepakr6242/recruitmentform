@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<head>
+  <title>Admin Page</title>
+</head>
+<body>
+<h1>Admin Page</h1>
+<br>
+<br>
+<select id="resume" name="my-dropdown" style="width: 50%";>
+  <option selected value="please choose resume from list">please choose Application</option>
+  {% for i in hlappl %}
+  <option value="{{ i }}">{{ i }}</option>
+  {% endfor %}  
+</select>
+
+<style type="text/css">
+  #resume {
+   width: 160px;
+   height: 34px;
+   overflow: hidden;
+   background: no-repeat right #fff;
+   
+   
+   border-radius:16px;
+}
+</style>
+
+<br>
+<br>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" id ="view" >View</button>
+</body>
+{% block content %}
+
+{% endblock %}
+
+<script>
+$(document).ready(function() {
+    $('#view').click(function() {
+      var  selectedresume=$('#resume option:selected').text()
+      alert (typeof selectedresume)
+        console.log(selectedresume)    
+        var request=$.ajax({
+        type: "POST",
+        url: "{{ 'showprofile '}}",
+      data:{url2:selectedresume}
+      });
+      request.done( function(response)
+     {
+   
+     $('.success').show();
+     console.log("after ajax call ")
+       window.location="http://localhost:8000/recruitmentapp/viewprofile"   
+     });
+
+     request.fail(function(jqXHR, textStatus)
+     {
+    
+     alert("Issue in executing the scripts please  contact  Dev")
+     });
+  });
+});
+
+</script>
+</html>
+

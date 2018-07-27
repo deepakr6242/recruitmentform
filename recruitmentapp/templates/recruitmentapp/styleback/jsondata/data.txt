@@ -1,0 +1,5 @@
+{
+  "norway": "Coffee,Coke",
+  "usa": "Chips,Cookies",
+  "denmark": "Chips,Cookies"
+}
