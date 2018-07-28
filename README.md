@@ -25,6 +25,10 @@ Extract/Unzip
   step2: build the app using cmd
        python manage.py runserver
   step3:Access through Link http://localhost:8000/recruitmentapp
+  
+  Admin Credentials:
+    username:credentials
+    p@ssW0rd:admin123
  
  
 
