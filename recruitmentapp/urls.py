@@ -2,13 +2,12 @@ from django.conf.urls import url,include
 from . import views
 from django.contrib.auth.views import login,logout
 
-
-
-
 urlpatterns=[
 	url(r'^login', login,{'template_name':'recruitmentapp/login.html'}),
   
    url(r'^$',views.hello, name='hello'),
+   url(r'^logout/$',logout,{'next_page':'recruitmentapp/login.html'}, name='hello'),
+
    url(r'^success',views.success, name='success'),
    url(r'^adminpage',views.adminpage, name='adminpage'),
    url(r'^showprofile',views.showprofile, name='showprofile'),

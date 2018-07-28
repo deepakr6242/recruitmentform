@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect,render_to_response
 from django.http import HttpResponse,HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.contrib.auth.views import logout
 import os
 
 
@@ -36,6 +37,12 @@ def adminpage(request):
 		applicants=os.listdir("C:\\recruitment")
 			
 		return render(request,'recruitmentapp/header2.html',{"hlappl":applicants})
+
+@csrf_exempt
+def logout(request):
+		logout(request)
+			
+		return redirect('/recruitmentapp/login.html')
 
 @csrf_exempt
 def showprofile(request):

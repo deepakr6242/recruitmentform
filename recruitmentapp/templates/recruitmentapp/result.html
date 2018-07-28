@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<title>Recruitment Form</title>
 	<meta charset="utf-8" />
@@ -9,7 +8,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	{% load staticfiles %}
-
+    <div class="topcorner"><a href="http://localhost:8000/recruitmentapp/login">Logout</a></div>
+<style>
+.topcorner{
+    position:absolute;
+    top:20px;
+    right: 100px;
+ }
+</style>
 	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
 	<style type="text/css">
 		html,
@@ -23,7 +29,7 @@
 <body>
 
 <div class="sidebar">
-<h6><a href="http://localhost:8000/recruitmentapp/adminpage">Back to Page</a></h6>
+<h6><a href="http://localhost:8000/recruitmentapp/adminpage">Back Admin page</a></h6>
 {% if user.is_authenticated %}
 </div>
         <div id="logo_text">
